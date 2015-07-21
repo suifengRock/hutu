@@ -25,5 +25,6 @@ func ApiListView(rsp http.ResponseWriter, req *http.Request) {
 func main() {
 	http.HandleFunc("/apilist/", ApiListView)
 	http.HandleFunc("/say", SayHello)
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./src/hutu/views"))))
 	http.ListenAndServe(":8001", nil)
 }

@@ -27,6 +27,11 @@
 
 	<style type="text/css">
 	body { padding-top: 100px; }
+  hr {
+    height: 0px;
+    border: none;
+    border-top: 2px dotted #185598;
+  }
 	</style>
 
 </head>
@@ -76,8 +81,23 @@
           Basic panel example
         </div>
       </div>
-
+    </div>
   </div>
+  <div class="form-group">
+    <hr class="col-sm-7 col-md-offset-1"></hr>
+  </div>
+  <div class="form-group">
+    <label for="token_id" class="col-sm-2 control-label">Filed</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" id="token_id" name="token_id">
+    </div>
+    <label for="token_id" class="col-sm-1 control-label">描述</label>
+    <div class="col-sm-3">
+      <input type="text" class="form-control" id="token_id" name="token_id">
+    </div>
+  </div>
+
+
   <div class="form-group">
     <div class="col-sm-offset-7 col-sm-5">
       <button type="sumbit" class="btn btn-primary "> 提  交 </button>

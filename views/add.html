@@ -48,7 +48,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
           <ul class="nav navbar-nav">
-            <li ><a href="api_list.html">apilist</a></li>
+            <li ><a href="/static/api_list.html">apilist</a></li>
             <li><a href="#">类别</a></li>
             <li class="active"><a href="#">添加</a></li>
           </ul>
@@ -58,8 +58,28 @@
 </div>
 
 
-<div class="container">
-<form class="form-horizontal" action='http://127.0.0.1:56789/api/customer/customer_info/' method='get'>
+<div class="container" ng-controller="createNewCntr">
+<form class="form-horizontal" action='/create/host/' method='post' ng-show='createNew'>
+  <div class="form-group">
+    <label for="host" class="col-sm-2 control-label">Host</label>
+    <div class="col-sm-6">
+      <input type="url" class="form-control" id="host" name="host" required>
+    </div>
+    <label for="host" class="col-sm-2 control-label">如  http://127.0.0.1:8080/</label>
+  </div>
+  <div class="form-group">
+    <label for="host_desc" class="col-sm-2 control-label">描述</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="host_desc" name="host_desc">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-7 col-sm-5">
+      <button type="sumbit" class="btn btn-primary "> 提  交 </button>
+    </div>
+  </div>
+</form>
+<form class="form-horizontal" action='http://127.0.0.1:56789/api/customer/customer_info/' method='get' ng-hide="createNew">
   <div class="form-group">
     <label for="token_id" class="col-sm-2 control-label">Host</label>
     <div class="col-sm-6">
@@ -70,7 +90,9 @@
         <option ng-selected="true">4</option>
         <option>5</option>
       </select>
-
+    </div>
+    <div class="col-sm-2">
+        <a  class="btn btn-success " ng-click="createHost()"> 新  建 </a>
     </div>
   </div>
    <div class="form-group">
@@ -83,17 +105,26 @@
       </div>
     </div>
   </div>
+  
   <div class="form-group">
     <hr class="col-sm-7 col-md-offset-1"></hr>
   </div>
+
   <div class="form-group">
+    <label for="token_id" class="col-sm-2 control-label">URL</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="token_id" name="token_id">
+    </div>
+    <label for="token_id" class="col-sm-2 control-label">如：/api/create....</label>
+  </div>
+  <div class="form-group" ng-repeat="filed in fileds">
     <label for="token_id" class="col-sm-2 control-label">Filed</label>
     <div class="col-sm-2">
-      <input type="text" class="form-control" id="token_id" name="token_id">
+      <input type="text" class="form-control" id="token_id" name="token_id" value="{{filed.name}}">
     </div>
     <label for="token_id" class="col-sm-1 control-label">描述</label>
     <div class="col-sm-3">
-      <input type="text" class="form-control" id="token_id" name="token_id">
+      <input type="text" class="form-control" id="token_id" name="token_id" value="{{filed.desc}}">
     </div>
   </div>
 
